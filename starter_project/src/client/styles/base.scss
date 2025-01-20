@@ -1,0 +1,22 @@
+body {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+ font-family: Arial, sans-serif; /* or another font of your choice */
+ background-color: #fafafa;
+ color: #333;
+}
+
+main {
+ flex: 2;
+ padding: 20px;
+}
+
+section {
+ max-width: 800px;
+ margin: 50px auto;
+ background: #fff;
+ border-radius: 5px;
+ padding: 20px;
+ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}

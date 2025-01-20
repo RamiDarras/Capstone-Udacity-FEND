@@ -1,0 +1,26 @@
+header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center; /* Ensures vertical centering */
+ padding: 10px 40px;
+ background-color: #333;
+ color: #fff;
+
+ /* Example styling if you have a nav or logo area */
+ .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+ }
+
+ .nav {
+  a {
+   color: #fff;
+   text-decoration: none;
+   margin-left: 20px;
+
+   &:hover {
+    text-decoration: underline;
+   }
+  }
+ }
+}

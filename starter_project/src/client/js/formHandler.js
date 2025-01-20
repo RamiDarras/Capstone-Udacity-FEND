@@ -1,30 +1,60 @@
-// Replace checkForName with a function that checks the URL
-import { checkForName } from './nameChecker'
+// starter_project/src/client/js/formHandler.js
 
-// If working on Udacity workspace, update this with the Server API URL e.g. `https://wfkdhyvtzx.prod.udacity-student-workspaces.com/api`
-// const serverURL = 'https://wfkdhyvtzx.prod.udacity-student-workspaces.com/api'
-const serverURL = 'https://localhost:8000/api'
-
-const form = document.getElementById('urlForm');
-form.addEventListener('submit', handleSubmit);
-
-function handleSubmit(event) {
-    event.preventDefault();
-
-    // Get the URL from the input field
-    const formText = document.getElementById('name').value;
-
-    // This is an example code that checks the submitted name. You may remove it from your code
-    checkForName(formText);
-    
-    // Check if the URL is valid
- 
-        // If the URL is valid, send it to the server using the serverURL constant above
-      
+// A small helper to validate URL format:
+export function validURL(str) {
+ try {
+  new URL(str);
+  return true;
+ } catch (err) {
+  return false;
+ }
 }
 
-// Function to send data to the server
+// Helper to POST data to server
+const postData = async (url = "", data = {}) => {
+ const response = await fetch(url, {
+  method: "POST",
+  credentials: "same-origin",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+ });
+ try {
+  return await response.json();
+ } catch (error) {
+  console.log("Error parsing JSON:", error);
+  return {};
+ }
+};
 
-// Export the handleSubmit function
+function handleSubmit(event) {
+ event.preventDefault();
+
+ // Grab the text from the input
+ const formText = document.getElementById("name").value;
+
+ // Validate that it's a URL
+ if (!validURL(formText)) {
+  alert("Please enter a valid URL!");
+  return;
+ }
+
+ // If valid, send it to our server
+ postData("http://localhost:8000/api", { url: formText })
+  .then((res) => {
+   console.log("Response from server:", res);
+
+   // Update the UI with the results
+   document.getElementById("results").innerHTML = `
+          <p><strong>Polarity (score_tag):</strong> ${res.score_tag}</p>
+          <p><strong>Agreement:</strong> ${res.agreement}</p>
+          <p><strong>Subjectivity:</strong> ${res.subjectivity}</p>
+          <p><strong>Confidence:</strong> ${res.confidence}</p>
+          <p><strong>Irony:</strong> ${res.irony}</p>
+        `;
+  })
+  .catch((error) => {
+   console.log("Error from server call:", error);
+  });
+}
+
 export { handleSubmit };
-
