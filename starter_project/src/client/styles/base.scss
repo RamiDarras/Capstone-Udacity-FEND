@@ -1,22 +1,210 @@
+/* ------------------------------------------------
+ * Minimalistic SCSS Design
+ * Color Palette:
+ *   Primary: #3A3960
+ *   Background: #eee
+ *   Black text: #212121
+ *   Shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px
+ * Font: Montserrat (imported in HTML)
+ * ------------------------------------------------ */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Body Styles */
 body {
- display: flex;
- flex-direction: column;
- min-height: 100vh;
- font-family: Arial, sans-serif; /* or another font of your choice */
- background-color: #fafafa;
- color: #333;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  color: #212121;
+  line-height: 1.6;
 }
 
-main {
- flex: 2;
- padding: 20px;
+/* Header & Footer */
+.app-header,
+.app-footer {
+  background-color: #3A3960;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  /* Subtle box shadow on header & footer (optional) */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-section {
- max-width: 800px;
- margin: 50px auto;
- background: #fff;
- border-radius: 5px;
- padding: 20px;
- box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+.app-header h1 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.app-footer p {
+  font-size: 0.9rem;
+}
+
+/* Main Container */
+.app-main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Search Section */
+.search-section {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  h2 {
+    font-weight: 600;
+    color: #3A3960;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    label {
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    input {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+  }
+
+  .search-btn {
+    background-color: #3A3960;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s;
+    &:hover {
+      background-color: #302f4e; /* slightly darker shade */
+    }
+  }
+}
+
+/* Latest Searches */
+.latest-searches {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-weight: 600;
+    color: #3A3960;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      background-color: #f8f8f8;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 3px;
+    }
+  }
+}
+
+/* Trip Card (results) */
+.trip-card {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
+
+  .trip-image {
+    width: 40%;
+    object-fit: cover;
+    /* If the images are large, limit height or let it auto-adjust */
+  }
+
+  .trip-info {
+    width: 60%;
+    padding: 1.5rem;
+
+    h2 {
+      color: #3A3960;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .departure-date,
+    .countdown {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .weather {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #444;
+    }
+  }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .trip-card {
+    flex-direction: column;
+    .trip-image,
+    .trip-info {
+      width: 100%;
+    }
+  }
+}
+
+/* Loading Overlay & Spinner */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid #3A3960;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

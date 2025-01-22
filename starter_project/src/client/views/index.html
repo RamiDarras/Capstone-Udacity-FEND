@@ -1,39 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-    </head>
+<html lang="en">
 
-    <body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Rami Darras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+</head>
 
-        <header>
-            <div class="">
-                Rami Darras
-            </div>
-            <div class="">
-                MeaningCloud API
-            </div>
-        </header>
+<body>
+  <header class="app-header">
+    <h1>Rami Darras Travel Planner</h1>
+  </header>
 
-        <main>
-            <section>
-                <form id="urlForm">
-                    <input id="name" type="text" name="url" placeholder="Enter URL" required>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                
-            </section>
+  <!-- Loading Overlay (Spinner) -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
-        </main>
+  <main class="app-main">
+    <section class="search-section">
+      <h2>Plan a Trip</h2>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input id="city" type="text" name="city" />
+      </div>
+      <div class="form-group">
+        <label for="departureDate">Departure Date:</label>
+        <input id="departureDate" type="date" name="departureDate" />
+      </div>
+      <button id="generateTrip" class="search-btn">Generate Trip</button>
+    </section>
 
-        <footer>
-            <p>Rami 2025</p>
-        </footer>
+    <!-- Latest Searches -->
+    <section id="latest-searches" class="latest-searches">
+      <h2>Latest Searches</h2>
+      <ul id="searchList"></ul>
+    </section>
 
-    </body>
+    <!-- Trip Results appear here -->
+    <section id="trip-results"></section>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2025 Darras, Rami</p>
+  </footer>
+
+</body>
+
 </html>
