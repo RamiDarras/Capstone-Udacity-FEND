@@ -12,4 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
  if (generateBtn) {
   generateBtn.addEventListener("click", handleGenerateTrip);
  }
+ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+   navigator.serviceWorker
+    .register("/service-worker.js")
+    .then(() => console.log("Service Worker Registered (production)"))
+    .catch((err) => console.error("SW registration failed:", err));
+  });
+ }
 });
