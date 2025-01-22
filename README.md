@@ -1,4 +1,3 @@
-
 # Travel Planner Capstone Project
 
 ## Description
@@ -16,11 +15,13 @@ The Travel Planner is a capstone project that allows users to plan trips by ente
 ## Technologies Used
 
 ### Frontend:
+
 - **HTML5, CSS3 (SCSS)**: Responsive and modern styling.
 - **JavaScript (ES6+)**: Interactive features and DOM manipulation.
 - **Webpack**: Module bundling and asset optimization.
 
 ### Backend:
+
 - **Node.js**: Server-side JavaScript runtime.
 - **Express.js**: Web application framework.
 - **APIs**:
@@ -31,10 +32,12 @@ The Travel Planner is a capstone project that allows users to plan trips by ente
 ## Installation
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm (Node Package Manager)
 
 ### Steps
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/travel-planner.git
@@ -73,6 +76,7 @@ The Travel Planner is a capstone project that allows users to plan trips by ente
 ## Testing
 
 To run tests:
+
 ```bash
 npm test
 ```
@@ -100,6 +104,6 @@ starter_project/
 └── webpack.prod.js
 ```
 
-## License
+## Developer
 
-This project is licensed under the MIT License.
+Rami Darras
