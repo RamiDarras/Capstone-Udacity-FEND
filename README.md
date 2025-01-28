@@ -1,109 +1,154 @@
-# Travel Planner Capstone Project
+# Travel Planner
 
-## Description
+Travel Planner is a web application designed to help users plan their trips by providing weather forecasts, trip countdowns, and location-based images. The project utilizes APIs such as Geonames, Weatherbit, and Pixabay to deliver a dynamic and engaging user experience.
 
-The Travel Planner is a capstone project that allows users to plan trips by entering a city and departure date. It fetches and displays trip details, including weather forecasts and images, using external APIs like Geonames, Weatherbit, and Pixabay.
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [APIs Used](#apis-used)
+- [Scripts](#scripts)
+- [License](#license)
+
+---
 
 ## Features
 
-- Enter a city and departure date to plan a trip.
-- Fetch and display weather forecasts for the selected date.
-- Show relevant images for the trip location.
-- Save the latest searches locally for quick access.
-- Responsive design for a seamless experience across devices.
+- Search for a city and specify a departure date.
+- View a countdown to your trip.
+- Get weather forecasts for your trip date.
+- Display relevant images for the destination.
+- Save recent searches to localStorage and view them on the app.
+- Fully responsive design.
+
+---
 
 ## Technologies Used
 
-### Frontend:
+### Frontend
 
-- **HTML5, CSS3 (SCSS)**: Responsive and modern styling.
-- **JavaScript (ES6+)**: Interactive features and DOM manipulation.
-- **Webpack**: Module bundling and asset optimization.
+- HTML5
+- SCSS
+- JavaScript (ES6+)
+- Webpack (development and production configurations)
 
-### Backend:
+### Backend
 
-- **Node.js**: Server-side JavaScript runtime.
-- **Express.js**: Web application framework.
-- **APIs**:
-  - **Geonames**: Fetch location data (latitude, longitude, and country).
-  - **Weatherbit**: Retrieve weather forecasts.
-  - **Pixabay**: Get images for the trip location.
+- Node.js
+- Express.js
 
-## Installation
+### APIs
+
+- Geonames API
+- Weatherbit API
+- Pixabay API
+
+### Testing
+
+- Jest (for unit testing)
+
+---
+
+## Setup and Installation
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm (Node Package Manager)
+- Node.js (v18 or higher)
+- npm (comes with Node.js)
 
 ### Steps
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/travel-planner.git
-   cd travel-planner
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env` file in the project root and add your API keys:
+``
+
+1. Create a `.env` file in the root directory and add your API credentials:
+
    ```env
    GEONAMES_USERNAME=your_geonames_username
-   WEATHERBIT_KEY=your_weatherbit_api_key
-   PIXABAY_KEY=your_pixabay_api_key
+   WEATHERBIT_KEY=your_weatherbit_key
+   PIXABAY_KEY=your_pixabay_key
    ```
-4. Start the development server:
+
+2. Start the development server:
+
    ```bash
    npm run build-dev
    ```
-5. To build for production:
+
+3. Open your browser and navigate to `http://localhost:8080`.
+
+4. To run the production build:
    ```bash
    npm run build-prod
-   ```
-6. Run the server in production:
-   ```bash
    npm start
    ```
+   The server will run on `http://localhost:8081`.
+
+---
 
 ## Usage
 
-1. Open the application in your browser.
-2. Enter a city and departure date.
-3. Click "Generate Trip" to fetch and display trip details.
-4. View and revisit recent searches.
+1. Enter the city and departure date in the provided form.
+2. Click the "Generate Trip" button.
+3. View the trip details, including:
+   - Countdown to the trip.
+   - Weather forecast.
+   - Image of the destination.
+4. Check the "Latest Searches" section for recent trip plans.
 
-## Testing
-
-To run tests:
-
-```bash
-npm test
-```
+---
 
 ## Project Structure
 
 ```
 starter_project/
+├── dist/                      # Compiled production files
 ├── src/
 │   ├── client/
-│   │   ├── js/
-│   │   ├── styles/
-│   │   ├── views/
-│   │   └── index.js
+│   │   ├── js/               # JavaScript logic
+│   │   ├── styles/           # SCSS files
+│   │   ├── views/            # HTML templates
+│   │   └── index.js          # Entry point for the client
 │   ├── server/
-│   │   ├── app.js
-│   │   └── server.js
-│   └── tests/
-├── .babelrc
-├── .env
-├── .gitignore
-├── jest.config.js
-├── package.json
-├── webpack.dev.js
-└── webpack.prod.js
+│   │   ├── app.js            # Express app
+│   │   └── server.js         # Server entry point
+│   └── tests/                # Jest test files
+├── .env                       # Environment variables
+├── .gitignore                 # Files ignored by git
+├── package.json               # Project metadata and dependencies
+├── webpack.dev.js             # Development Webpack configuration
+├── webpack.prod.js            # Production Webpack configuration
+└── README.md                  # Project documentation
 ```
+
+---
+
+## APIs Used
+
+1. **Geonames API**
+
+   - Provides geographical data such as latitude, longitude, and country name.
+
+2. **Weatherbit API**
+
+   - Provides weather forecasts or current weather data based on latitude and longitude.
+
+3. **Pixabay API**
+   - Fetches images related to the destination city or country.
+
+---
+
+## Scripts
+
+- `npm run start`: Starts the production server.
+- `npm run build-dev`: Starts the development server with hot reloading.
+- `npm run build-prod`: Builds the application for production.
+- `npm test`: Runs the Jest tests.
+
+---
 
 ## Developer
 
-Rami Darras
+Rami Darras.
