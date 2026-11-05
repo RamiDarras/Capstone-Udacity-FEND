@@ -86,8 +86,8 @@ app.post("/addTrip", async (req, res) => {
    // We'll just use the first day's data as an example
    const dayWeather = weatherData.data[0];
    weatherDescription = dayWeather.weather.description;
-   tempHigh = dayWeather.high_temp || dayWeather.temp;
-   tempLow = dayWeather.low_temp || dayWeather.temp;
+   tempHigh = dayWeather.high_temp ?? dayWeather.temp;
+   tempLow = dayWeather.low_temp ?? dayWeather.temp;
   }
 
   // 4) Pixabay: image for city fallback to country
